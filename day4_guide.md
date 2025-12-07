@@ -412,6 +412,7 @@ complete_form_demo.html:
     <script type="text/javascript" src="./dwz_jui-master/js/jquery-3.4.1.js"></script>
     <script src="./dwz_jui-master/js/jquery.validate.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="./dwz_jui-master/js/dwz.util.date.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.validate.method.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.combox.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.datepicker.js" type="text/javascript"></script>

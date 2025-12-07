@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>完整表单页面演示</title>
+    <link href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script src="../dwz_jui-master/js/jquery.validate.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.validate.method.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.combox.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.datepicker.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.spinner.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    
+    // 模拟联动数据
+    function loadCities() {
+        var province = $("select[name='province']").val();
+        var citySelect = $("select[name='city']");
+        citySelect.empty().append('<option value="">请选择城市</option>');
+        
+        if (province === "beijing") {
+            citySelect.append('<option value="beijing">北京市</option>');
+        } else if (province === "shanghai") {
+            citySelect.append('<option value="shanghai">上海市</option>');
+        } else if (province === "guangdong") {
+            citySelect.append('<option value="guangzhou">广州市</option>');
+            citySelect.append('<option value="shenzhen">深圳市</option>');
+        }
+        
+        // 重新初始化combox
+        citySelect.combox();
+    }
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>完整表单页面演示</h1>
+            <div class="alertInfo">
+                <p>这是一个包含各种表单组件和验证规则的完整示例。</p>
+            </div>
+            
+            <form method="post" action="register.php" class="pageForm required-validate">
+                <div class="panel">
+                    <h1>账户信息</h1>
+                    <div>
+                        <div class="unit">
+                            <label>用户名：</label>
+                            <input type="text" name="username" class="required alphanumeric" minlength="3" maxlength="20" alt="请输入3-20位字母数字组合"/>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>邮箱：</label>
+                            <input type="email" name="email" class="required email" alt="请输入正确的邮箱地址"/>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>密码：</label>
+                            <input type="password" id="password" name="password" class="required" minlength="6" maxlength="20" alt="密码长度为6-20位"/>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>确认密码：</label>
+                            <input type="password" name="confirm_password" class="required" equalto="#password" alt="两次输入的密码不一致"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h1>个人信息</h1>
+                    <div>
+                        <div class="unit">
+                            <label>真实姓名：</label>
+                            <input type="text" name="realname" class="required" />
+                        </div>
+                        
+                        <div class="unit">
+                            <label>性别：</label>
+                            <label><input type="radio" name="gender" value="male" class="required" />男</label>
+                            <label><input type="radio" name="gender" value="female" />女</label>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>出生日期：</label>
+                            <input type="text" name="birthday" class="date required" dateFmt="yyyy-MM-dd" />
+                        </div>
+                        
+                        <div class="unit">
+                            <label>年龄：</label>
+                            <input type="text" name="age" class="spinner required digits" min="1" max="120" />
+                        </div>
+                        
+                        <div class="unit">
+                            <label>手机号：</label>
+                            <input type="tel" name="mobile" class="required phone" alt="请输入正确的手机号"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h1>地址信息</h1>
+                    <div>
+                        <div class="unit">
+                            <label>省份：</label>
+                            <select name="province" class="combox required" onchange="loadCities()">
+                                <option value="">请选择省份</option>
+                                <option value="beijing">北京市</option>
+                                <option value="shanghai">上海市</option>
+                                <option value="guangdong">广东省</option>
+                            </select>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>城市：</label>
+                            <select name="city" class="combox required">
+                                <option value="">请选择城市</option>
+                            </select>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>详细地址：</label>
+                            <textarea name="address" class="required" rows="3" cols="50"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h1>其他信息</h1>
+                    <div>
+                        <div class="unit">
+                            <label>爱好：</label>
+                            <label><input type="checkbox" name="hobby" value="reading" />阅读</label>
+                            <label><input type="checkbox" name="hobby" value="music" />音乐</label>
+                            <label><input type="checkbox" name="hobby" value="sports" />运动</label>
+                            <label><input type="checkbox" name="hobby" value="travel" />旅游</label>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>个人简介：</label>
+                            <textarea name="bio" maxlength="200" alt="简介不能超过200字"></textarea>
+                        </div>
+                        
+                        <div class="unit">
+                            <label>同意协议：</label>
+                            <label><input type="checkbox" name="agreement" class="required" alt="请先同意用户协议"/>我已阅读并同意用户协议</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="unit">
+                    <button type="submit">注册</button>
+                    <button type="reset">重置</button>
+                    <button type="button" class="close">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -46,6 +46,12 @@ dwz-examples/
 │   ├── alert_demo.html       # alert组件演示
 │   ├── full_popup_demo.html  # 弹窗组件综合演示
 │   └── ...                   # 其他支持文件
+├── day4_guide.md             # 第四天学习指南
+├── day4_examples/            # 第四天实践示例
+│   ├── form_validation_demo.html  # 表单验证演示
+│   ├── form_components_demo.html  # 表单组件演示
+│   ├── complete_form_demo.html    # 完整表单页面演示
+│   └── ...                        # 其他支持文件
 └── README.md                 # 本文件
 ```
 
@@ -72,10 +78,10 @@ dwz-examples/
   - [x] 掌握alert组件和提醒消息 ([指南](day3_guide.md))
   - [x] 实践：创建多种弹窗类型页面 ([指南](day3_guide.md))
 
-- [ ] **第4天：表单相关组件**
-  - [ ] 学习表单验证机制
-  - [ ] 掌握datepicker、combox等表单组件
-  - [ ] 实践：创建完整表单页面
+- [x] **第4天：表单相关组件**
+  - [x] 学习表单验证机制 ([指南](day4_guide.md))
+  - [x] 掌握datepicker、combox等表单组件 ([指南](day4_guide.md))
+  - [x] 实践：创建完整表单页面 ([指南](day4_guide.md))
 
 - [ ] **第5天：数据展示组件**
   - [ ] 学习表格和分页组件
@@ -114,3 +120,5 @@ dwz-examples/
 - 第二天实践示例：[day2_examples/](file:///opt/workspace/dwz-examples/day2_examples/)
 - 第三天学习指南：[day3_guide.md](file:///opt/workspace/dwz-examples/day3_guide.md)
 - 第三天实践示例：[day3_examples/](file:///opt/workspace/dwz-examples/day3_examples/)
+- 第四天学习指南：[day4_guide.md](file:///opt/workspace/dwz-examples/day4_guide.md)
+- 第四天实践示例：[day4_examples/](file:///opt/workspace/dwz-examples/day4_examples/)

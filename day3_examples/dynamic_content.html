@@ -1,0 +1,25 @@
+<div style="padding:20px; text-align: center;">
+    <h2>动态内容</h2>
+    <p>这是通过JavaScript动态打开的对话框内容。</p>
+    <p>当前时间：<span id="currentTime"></span></p>
+    
+    <div style="margin: 20px 0;">
+        <button type="button" onclick="updateTime()">更新时间</button>
+    </div>
+    
+    <div style="background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <h3>功能说明</h3>
+        <p>这个对话框是通过JavaScript代码动态打开的：</p>
+        <pre style="text-align: left;">$.pdialog.open('dynamic_content.html', 'dynamicDialog', '动态内容', {width: 500, height: 300});</pre>
+    </div>
+    
+    <button type="button" onclick="$.pdialog.closeCurrent()">关闭窗口</button>
+</div>
+
+<script>
+document.getElementById('currentTime').innerText = new Date().toLocaleString();
+
+function updateTime() {
+    document.getElementById('currentTime').innerText = new Date().toLocaleString();
+}
+</script>

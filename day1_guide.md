@@ -354,6 +354,8 @@ DWZ框架由多个JS文件组成，每个文件负责不同的功能：
     <script src="./dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.theme.js" type="text/javascript"></script>
     <script src="./dwz_jui-master/js/dwz.alertMsg.js" type="text/javascript"></script>
+    <script src="./dwz_jui-master/js/dwz.contextmenu.js" type="text/javascript"></script>
+    <script src="./dwz_jui-master/js/dwz.navTab.js" type="text/javascript"></script>
     
     <!-- 国际化支持 -->
     <script src="./dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>

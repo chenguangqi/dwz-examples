@@ -27,7 +27,7 @@ DWZ是一个基于jQuery的富客户端框架，它提供了丰富的UI组件和
 
 我们的项目中包含了完整的DWZ J-UI框架源码，目录结构如下：
 
-```
+```shell
 dwz_jui-master/
 ├── bin/                  # 编译压缩后的生产环境版本
 ├── chart/                # 图表插件(echarts)
@@ -128,6 +128,7 @@ DWZ.init(fragUrl, options)
 ```
 
 其中：
+
 - `fragUrl`：页面片段配置文件地址（通常是dwz.frag.xml）
 - `options`：初始化配置选项
 
@@ -196,7 +197,7 @@ var DWZ = {
 
 查看`dwz_jui-master/index.html`文件中的初始化代码：
 
-```
+```javascript
 $(function(){
     DWZ.init("dwz.frag.xml", {
         loginUrl:"login_dialog.html", 
@@ -215,6 +216,7 @@ $(function(){
 ```
 
 关键步骤：
+
 1. DOM加载完成后执行初始化
 2. 调用`DWZ.init()`方法
 3. 在callback中调用`initEnv()`初始化环境
@@ -229,7 +231,7 @@ $(function(){
 3. 设置页面布局
 4. 初始化UI组件
 
-```
+```javascript
 function initEnv(){
     // 初始化页面环境
     $(window).resize(function(){
@@ -292,7 +294,7 @@ DWZ框架由多个JS文件组成，每个文件负责不同的功能：
 
 这个文件定义了各种组件所需的HTML模板片段。例如：
 
-```
+```xml
 <_PAGE_ id="dialogFrag"><![CDATA[
 <div class="dialog" style="top:150px; left:300px;">
     <div class="dialogHeader">
@@ -315,6 +317,7 @@ DWZ框架由多个JS文件组成，每个文件负责不同的功能：
 ### CSS样式文件
 
 主题样式位于`dwz_jui-master/themes/`目录下，每个主题包含：
+
 - style.css：主要样式文件
 - core.css：核心样式
 - ieHack.css：IE兼容样式
@@ -326,7 +329,7 @@ DWZ框架由多个JS文件组成，每个文件负责不同的功能：
 
 创建一个简单的HTML页面，引入必要的CSS和JS文件：
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -362,7 +365,7 @@ DWZ框架由多个JS文件组成，每个文件负责不同的功能：
 
 在页面底部添加初始化代码：
 
-```
+```html
 <script type="text/javascript">
 $(function(){
     DWZ.init("./dwz_jui-master/dwz.frag.xml", {
@@ -382,7 +385,7 @@ $(function(){
 
 添加基本的页面布局结构：
 
-```
+```html
 <body>
     <div id="layout">
         <!-- 头部 -->
@@ -411,7 +414,7 @@ $(function(){
 
 在内容区添加一些基本功能的演示：
 
-```
+```html
 <div id="navTab" class="tabsPage">
     <div class="tabsPageHeader">
         <div class="tabsPageHeaderContent">

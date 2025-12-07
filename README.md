@@ -21,15 +21,15 @@ dwz-examples/
 │   ├── themes/               # 主题样式文件
 │   │   ├── default/          # 默认蓝色主题
 │   │   ├── green/            # 绿色主题
-│   │   ├── purple/           # 紫色主题
-│   │   ├── silver/           # 银色主题
-│   │   ├── azure/            # 天蓝色主题
-│   │   └── css/             # 核心样式文件
+│   │   ├── purple/            # 紫色主题
+│   │   ├── silver/            # 银色主题
+│   │   ├── azure/             # 天蓝色主题
+│   │   └── css/              # 核心样式文件
 │   ├── uploadify/            # jQuery文件上传插件
 │   ├── xheditor/             # 在线HTML编辑器
 │   ├── index.html            # 主入口文件（功能演示）
 │   ├── dwz.frag.xml          # 页面片段配置文件
-│   └── ...                  # 其他示例页面文件
+│   └── ...                   # 其他示例页面文件
 ├── day1_guide.md             # 第一天学习指南
 ├── day1_demo.html            # 第一天实践示例
 ├── day2_guide.md             # 第二天学习指南
@@ -38,7 +38,8 @@ dwz-examples/
 │   ├── menu_demo.html        # 菜单组件演示
 │   ├── panels_demo.html      # 面板组件演示
 │   ├── full_nav_demo.html    # 完整导航结构演示
-│   └── ...                  # 其他支持文件
+│   └── ...                   # 其他支持文件
+├── day3_guide.md             # 第三天学习指南
 └── README.md                 # 本文件
 ```
 
@@ -53,17 +54,17 @@ dwz-examples/
   - [x] 实践：创建简单页面集成基础功能 ([示例](day1_demo.html))
 
 - [x] **第2天：导航与布局组件**
-  - [x] 学习navTab组件工作原理 ([任务](day2_guide.md))
-  - [x] 掌握菜单栏和导航栏使用方法 ([任务](day2_guide.md))
-  - [x] 学习面板组件(accordion等) ([任务](day2_guide.md))
-  - [x] 实践：构建完整导航结构页面 ([示例](day2_examples))
+  - [x] 学习navTab组件工作原理 ([任务](day2_tasks.md))
+  - [x] 掌握菜单栏和导航栏使用方法 ([任务](day2_tasks.md))
+  - [x] 学习面板组件(accordion等) ([任务](day2_tasks.md))
+  - [x] 实践：构建完整导航结构页面 ([任务](day2_tasks.md))
 
 ### 第二阶段：UI组件学习 (3天)
 
-- [ ] **第3天：对话框与弹窗组件**
-  - [ ] 学习dialog组件使用方法
-  - [ ] 掌握alert组件和提醒消息
-  - [ ] 实践：创建多种弹窗类型页面
+- [x] **第3天：对话框与弹窗组件**
+  - [x] 学习dialog组件使用方法 ([指南](day3_guide.md))
+  - [x] 掌握alert组件和提醒消息 ([指南](day3_guide.md))
+  - [x] 实践：创建多种弹窗类型页面 ([指南](day3_guide.md))
 
 - [ ] **第4天：表单相关组件**
   - [ ] 学习表单验证机制
@@ -104,3 +105,4 @@ dwz-examples/
 - 第一天实践示例：[day1_demo.html](file:///opt/workspace/dwz-examples/day1_demo.html)
 - 第二天学习指南：[day2_guide.md](file:///opt/workspace/dwz-examples/day2_guide.md)
 - 第二天实践示例：[day2_examples/](file:///opt/workspace/dwz-examples/day2_examples/)
+- 第三天学习指南：[day3_guide.md](file:///opt/workspace/dwz-examples/day3_guide.md)

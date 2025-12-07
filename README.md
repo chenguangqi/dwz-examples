@@ -32,6 +32,7 @@ dwz-examples/
 │   └── ...                   # 其他示例页面文件
 ├── day1_guide.md             # 第一天学习指南
 ├── day1_demo.html            # 第一天实践示例
+├── day2_tasks.md             # 第二天学习任务
 ├── day2_guide.md             # 第二天学习指南
 ├── day2_examples/            # 第二天实践示例
 │   ├── navtab_demo.html      # navTab组件演示
@@ -40,6 +41,11 @@ dwz-examples/
 │   ├── full_nav_demo.html    # 完整导航结构演示
 │   └── ...                   # 其他支持文件
 ├── day3_guide.md             # 第三天学习指南
+├── day3_examples/            # 第三天实践示例
+│   ├── dialog_demo.html      # dialog组件演示
+│   ├── alert_demo.html       # alert组件演示
+│   ├── full_popup_demo.html  # 弹窗组件综合演示
+│   └── ...                   # 其他支持文件
 └── README.md                 # 本文件
 ```
 
@@ -103,6 +109,8 @@ dwz-examples/
 - 入口文件：`dwz_jui-master/index.html`中的示例用法
 - 第一天学习指南：[day1_guide.md](file:///opt/workspace/dwz-examples/day1_guide.md)
 - 第一天实践示例：[day1_demo.html](file:///opt/workspace/dwz-examples/day1_demo.html)
+- 第二天学习任务：[day2_tasks.md](file:///opt/workspace/dwz-examples/day2_tasks.md)
 - 第二天学习指南：[day2_guide.md](file:///opt/workspace/dwz-examples/day2_guide.md)
 - 第二天实践示例：[day2_examples/](file:///opt/workspace/dwz-examples/day2_examples/)
 - 第三天学习指南：[day3_guide.md](file:///opt/workspace/dwz-examples/day3_guide.md)
+- 第三天实践示例：[day3_examples/](file:///opt/workspace/dwz-examples/day3_examples/)

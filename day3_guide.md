@@ -33,7 +33,7 @@ dialog组件基于以下技术实现：
 - `height="数值"`：对话框高度（像素）
 - `mask="true/false"`：是否显示遮罩层（默认false）
 - `max="true/false"`：是否可最大化（默认false）
-- ` resizable="true/false"`：是否可调整大小（默认true）
+- `resizable="true/false"`：是否可调整大小（默认true）
 
 #### JavaScript方法
 - `$.pdialog.open(url, dlgid, title, options)`：打开对话框

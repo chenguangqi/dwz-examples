@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>dialog组件演示</title>
+    <link href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.dialog.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.drag.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.dialogDrag.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>dialog组件演示</h1>
+            
+            <div class="unit">
+                <a class="button" href="simple_form.html" target="dialog" title="简单表单">
+                    <span>打开简单表单</span>
+                </a>
+                <a class="button" href="confirm_dialog.html" target="dialog" title="确认对话框" mask="true">
+                    <span>打开确认对话框</span>
+                </a>
+                <a class="button" href="large_content.html" target="dialog" title="大内容窗口" width="800" height="600">
+                    <span>打开大内容窗口</span>
+                </a>
+                <a class="button" href="javascript:void(0)" onclick="openJsDialog()">
+                    <span>JavaScript方式打开</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function openJsDialog() {
+        $.pdialog.open('dynamic_content.html', 'dynamicDialog', '动态内容', {width: 500, height: 300});
+    }
+    </script>
+</body>
+</html>

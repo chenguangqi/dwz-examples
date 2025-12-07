@@ -1,0 +1,29 @@
+<div style="padding:20px;">
+    <h2>用户信息表单</h2>
+    <form>
+        <div class="unit">
+            <label>用户名：</label>
+            <input type="text" name="username" />
+        </div>
+        <div class="unit">
+            <label>邮箱：</label>
+            <input type="email" name="email" />
+        </div>
+        <div class="unit">
+            <label>电话：</label>
+            <input type="tel" name="phone" />
+        </div>
+        <div class="unit">
+            <label>角色：</label>
+            <select name="role">
+                <option value="admin">管理员</option>
+                <option value="user">普通用户</option>
+                <option value="guest">访客</option>
+            </select>
+        </div>
+        <div class="unit">
+            <button type="button" onclick="$.pdialog.closeCurrent()">取消</button>
+            <button type="submit">保存</button>
+        </div>
+    </form>
+</div>

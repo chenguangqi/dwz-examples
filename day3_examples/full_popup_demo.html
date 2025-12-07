@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗组件综合演示</title>
+    <link href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.dialog.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.drag.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.dialogDrag.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.alertMsg.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>弹窗组件综合演示</h1>
+            
+            <div class="panel">
+                <h1>Dialog组件演示</h1>
+                <div>
+                    <div class="unit">
+                        <a class="button" href="user_form.html" target="dialog" title="用户信息">
+                            <span>打开用户表单</span>
+                        </a>
+                        <a class="button" href="product_detail.html" target="dialog" title="产品详情" width="700" height="500">
+                            <span>打开产品详情</span>
+                        </a>
+                        <a class="button" href="confirm_action.html" target="dialog" title="确认操作" mask="true">
+                            <span>打开确认操作</span>
+                        </a>
+                        <a class="button" href="javascript:void(0)" onclick="openDynamicDialog()">
+                            <span>动态打开对话框</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h1>alert组件演示</h1>
+                <div>
+                    <div class="unit">
+                        <a class="button" href="javascript:void(0)" onclick="showSuccessMessage()">
+                            <span>显示成功消息</span>
+                        </a>
+                        <a class="button" href="javascript:void(0)" onclick="showErrorMessage()">
+                            <span>显示错误消息</span>
+                        </a>
+                        <a class="button" href="javascript:void(0)" onclick="showWarningMessage()">
+                            <span>显示警告消息</span>
+                        </a>
+                        <a class="button" href="javascript:void(0)" onclick="showInfoMessage()">
+                            <span>显示信息消息</span>
+                        </a>
+                    </div>
+                    
+                    <div class="unit">
+                        <a class="button" href="javascript:void(0)" onclick="showConfirmDialog()">
+                            <span>显示确认对话框</span>
+                        </a>
+                        <a class="button" href="javascript:void(0)" onclick="showCustomAlert()">
+                            <span>显示自定义提醒</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h1>实际应用场景</h1>
+                <div>
+                    <div class="unit">
+                        <a class="button" href="delete_confirm.html" target="dialog" title="删除确认" mask="true">
+                            <span>删除操作确认</span>
+                        </a>
+                        <a class="button" href="user_profile.html" target="dialog" title="用户资料" width="600" height="400">
+                            <span>查看用户资料</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function openDynamicDialog() {
+        $.pdialog.open('dynamic_content.html', 'dynamicDialog', '动态内容', {width: 500, height: 300});
+    }
+    
+    function showSuccessMessage() {
+        alertMsg.correct('操作成功完成！');
+    }
+    
+    function showErrorMessage() {
+        alertMsg.error('操作失败，请检查输入信息！');
+    }
+    
+    function showWarningMessage() {
+        alertMsg.warn('请注意，您的操作可能存在风险！');
+    }
+    
+    function showInfoMessage() {
+        alertMsg.info('这是一条提示信息，仅供参考。');
+    }
+    
+    function showConfirmDialog() {
+        alertMsg.confirm('确定要执行此操作吗？此操作不可撤销。', {
+            okCall: function() {
+                alertMsg.correct('操作已执行！');
+            }
+        });
+    }
+    
+    function showCustomAlert() {
+        alertMsg.info('这是一个自定义的提醒消息，带有标题和回调函数。', {
+            title: '自定义提醒',
+            okCall: function() {
+                alert('您点击了确定按钮！');
+            }
+        });
+    }
+    </script>
+</body>
+</html>

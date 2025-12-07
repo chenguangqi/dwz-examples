@@ -8,7 +8,7 @@
 
 ## 项目结构说明
 
-```shell
+```
 dwz-examples/
 ├── dwz_jui-master/           # DWZ框架完整源码
 │   ├── bin/                  # 编译和部署脚本（压缩版JS/CSS）
@@ -31,6 +31,14 @@ dwz-examples/
 │   ├── dwz.frag.xml          # 页面片段配置文件
 │   └── ...                  # 其他示例页面文件
 ├── day1_guide.md             # 第一天学习指南
+├── day1_demo.html            # 第一天实践示例
+├── day2_guide.md             # 第二天学习指南
+├── day2_examples/            # 第二天实践示例
+│   ├── navtab_demo.html      # navTab组件演示
+│   ├── menu_demo.html        # 菜单组件演示
+│   ├── panels_demo.html      # 面板组件演示
+│   ├── full_nav_demo.html    # 完整导航结构演示
+│   └── ...                  # 其他支持文件
 └── README.md                 # 本文件
 ```
 
@@ -44,11 +52,11 @@ dwz-examples/
   - [x] 掌握核心组件和配置文件 ([指南](day1_guide.md))
   - [x] 实践：创建简单页面集成基础功能 ([示例](day1_demo.html))
 
-- [ ] **第2天：导航与布局组件**
-  - [ ] 学习navTab组件工作原理
-  - [ ] 掌握菜单栏和导航栏使用方法
-  - [ ] 学习面板组件(accordion等)
-  - [ ] 实践：构建完整导航结构页面
+- [x] **第2天：导航与布局组件**
+  - [x] 学习navTab组件工作原理 ([任务](day2_guide.md))
+  - [x] 掌握菜单栏和导航栏使用方法 ([任务](day2_guide.md))
+  - [x] 学习面板组件(accordion等) ([任务](day2_guide.md))
+  - [x] 实践：构建完整导航结构页面 ([示例](day2_examples))
 
 ### 第二阶段：UI组件学习 (3天)
 
@@ -94,3 +102,5 @@ dwz-examples/
 - 入口文件：`dwz_jui-master/index.html`中的示例用法
 - 第一天学习指南：[day1_guide.md](file:///opt/workspace/dwz-examples/day1_guide.md)
 - 第一天实践示例：[day1_demo.html](file:///opt/workspace/dwz-examples/day1_demo.html)
+- 第二天学习指南：[day2_guide.md](file:///opt/workspace/dwz-examples/day2_guide.md)
+- 第二天实践示例：[day2_examples/](file:///opt/workspace/dwz-examples/day2_examples/)

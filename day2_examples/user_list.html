@@ -1,0 +1,47 @@
+<div style="padding:20px;">
+    <h2>用户管理</h2>
+    <div class="searchBar">
+        <form>
+            <div class="subBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="pageContent">
+        <table class="table" width="100%">
+            <thead>
+                <tr>
+                    <th width="50">ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>角色</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>admin</td>
+                    <td>admin@example.com</td>
+                    <td>超级管理员</td>
+                    <td>
+                        <a href="user_edit.html" target="navTab" rel="userEdit">编辑</a>
+                        <a href="javascript:void(0)" onclick="alertMsg.confirm('确定要删除该用户吗？')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>zhangsan</td>
+                    <td>zhangsan@example.com</td>
+                    <td>普通用户</td>
+                    <td>
+                        <a href="user_edit.html" target="navTab" rel="userEdit">编辑</a>
+                        <a href="javascript:void(0)" onclick="alertMsg.confirm('确定要删除该用户吗？')">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

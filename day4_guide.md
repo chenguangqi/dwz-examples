@@ -26,21 +26,21 @@ DWZ框架的表单验证基于以下技术实现：
 
 #### 基本验证属性
 - `class="required"`：必填字段
-- ` minlength="n"`：最小长度
-- ` maxlength="n"`：最大长度
-- ` equalto="field"`：与另一个字段值相等
-- ` remote="url"`：远程验证
+- `minlength="n"`：最小长度
+- `maxlength="n"`：最大长度
+- `equalto="field"`：与另一个字段值相等
+- `remote="url"`：远程验证
 
 #### 类型验证属性
-- ` type="email"`：电子邮件格式
-- ` type="url"`：网址格式
-- ` type="date"`：日期格式
-- ` type="number"`：数字格式
-- ` type="digits"`：整数格式
+- `type="email"`：电子邮件格式
+- `type="url"`：网址格式
+- `type="date"`：日期格式
+- `type="number"`：数字格式
+- `type="digits"`：整数格式
 
 #### 自定义验证属性
-- ` customvalid="function"`：自定义验证函数
-- ` alt="提示信息"`：自定义提示信息
+- `customvalid="function"`：自定义验证函数
+- `alt="提示信息"`：自定义提示信息
 
 ### 表单验证使用示例
 

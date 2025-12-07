@@ -1,74 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>navTab组件演示</title>
-    <link href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
-    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
-    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
-    <script src="../dwz_jui-master/js/dwz.navTab.js" type="text/javascript"></script>
-    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
-    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(function(){
-        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
-            statusCode:{ok:200, error:300, timeout:301}, 
-            keys: {statusCode:"statusCode", message:"message"},
-            callback:function(){
-                initEnv();
-            }
-        });
-    });
-    </script>
-</head>
-<body>
-    <div id="layout">
-        <div style="padding:20px;">
-            <h1>navTab组件演示</h1>
-            
-            <div class="unit">
-                <a class="button" href="demo_page1.html" target="navTab" rel="page1" title="页面1">
-                    <span>打开页面1</span>
-                </a>
-                <a class="button" href="demo_page2.html" target="navTab" rel="page2" title="页面2">
-                    <span>打开页面2</span>
-                </a>
-                <a class="button" href="demo_page1.html" target="navTab" rel="page1" fresh="false">
-                    <span>打开页面1(不刷新)</span>
-                </a>
-            </div>
-        </div>
-        
-        <div style="margin:20px;">
-            <div id="navTab" class="tabsPage">
-                <div class="tabsPageHeader">
-                    <div class="tabsPageHeaderContent">
-                        <ul class="navTab-tab">
-                            <li tabid="main" class="main">
-                                <a href="javascript:;">
-                                    <span><span class="home_icon">我的主页</span></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tabsLeft">left</div>
-                    <div class="tabsRight">right</div>
-                    <div class="tabsMore">more</div>
+    <head>
+        <meta charset="UTF-8">
+        <title>navTab组件演示</title>
+        <!-- 引入必需的CSS文件 -->
+        <link href="/dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+        <link href="/dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+
+        <!-- 引入jQuery -->
+        <script type="text/javascript" src="/dwz_jui-master/js/jquery-3.4.1.js"></script>
+        <!-- 引入DWZ核心框架脚本 -->
+        <script type="text/javascript" src="/dwz_jui-master/js/dwz.core.js"></script>
+        <!-- 引入其他必要组件 -->
+        <script src="/dwz_jui-master/js/dwz.util.date.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.validate.method.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.barDrag.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.drag.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.tree.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.accordion.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.theme.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.alertMsg.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.contextmenu.js" type="text/javascript"></script>
+        <script src="/dwz_jui-master/js/dwz.navTab.js" type="text/javascript"></script>
+
+        <!-- 国际化支持 -->
+        <script src="/dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                DWZ.init("/dwz_jui-master/dwz.frag.xml", {
+                    statusCode:{ok:200, error:300, timeout:301}, 
+                    keys: {statusCode:"statusCode", message:"message"},
+                    callback:function(){
+                        initEnv();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="layout">
+            <div style="padding:20px;">
+                <h1>navTab组件演示</h1>
+
+                <div class="unit">
+                    <a class="button" href="demo_page1.html" target="navTab" rel="page1" title="页面1">
+                        <span>打开页面1</span>
+                    </a>
+                    <a class="button" href="demo_page2.html" target="navTab" rel="page2" title="页面2">
+                        <span>打开页面2</span>
+                    </a>
+                    <a class="button" href="demo_page1.html" target="navTab" rel="page1" fresh="false">
+                        <span>打开页面1(不刷新)</span>
+                    </a>
                 </div>
-                <ul class="tabsMoreList">
-                    <li><a href="javascript:;">我的主页</a></li>
-                </ul>
-                <div class="navTab-panel tabsPageContent layoutBox">
-                    <div class="page unitBox">
-                        <div style="padding:20px;">
-                            <h2>欢迎使用navTab组件</h2>
-                            <p>点击上面的按钮打开不同的标签页</p>
+            </div>
+
+            <div style="margin:20px;">
+                <div id="navTab" class="tabsPage">
+                    <div class="tabsPageHeader">
+                        <div class="tabsPageHeaderContent">
+                            <ul class="navTab-tab">
+                                <li tabid="main" class="main">
+                                    <a href="javascript:;">
+                                        <span><span class="home_icon">我的主页</span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tabsLeft">left</div>
+                        <div class="tabsRight">right</div>
+                        <div class="tabsMore">more</div>
+                    </div>
+                    <ul class="tabsMoreList">
+                        <li><a href="javascript:;">我的主页</a></li>
+                    </ul>
+                    <div class="navTab-panel tabsPageContent layoutBox">
+                        <div class="page unitBox">
+                            <div style="padding:20px;">
+                                <h2>欢迎使用navTab组件</h2>
+                                <p>点击上面的按钮打开不同的标签页</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

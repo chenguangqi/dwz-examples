@@ -70,6 +70,25 @@ dwz-examples/
 │   ├── theme_switch_demo.html     # 主题切换演示
 │   ├── extended_features_demo.html # 扩展功能综合演示
 │   └── ...                        # 其他支持文件
+├── day8_10_guide.md          # 第8-10天学习指南
+├── employee_system/          # 员工管理系统示例
+│   ├── index.html             # 系统入口页面
+│   ├── login.html             # 登录页面
+│   ├── main.html              # 系统主页面
+│   ├── data/                  # 模拟数据文件
+│   │   ├── users.json
+│   │   ├── employees.json
+│   │   ├── departments.json
+│   │   └── positions.json
+│   ├── pages/                 # 各功能页面
+│   │   ├── employee_list.html
+│   │   ├── employee_form.html
+│   │   ├── department_list.html
+│   │   ├── department_form.html
+│   │   ├── position_list.html
+│   │   └── position_form.html
+│   └── js/                    # 自定义JavaScript文件
+│       └── app.js
 └── README.md                 # 本文件
 ```
 
@@ -120,11 +139,11 @@ dwz-examples/
 
 ### 第四阶段：综合应用示例 (3天)
 
-- [ ] **第8-10天：开发综合管理系统**
-  - [ ] 需求分析和设计
-  - [ ] 功能开发和实现
-  - [ ] 测试和完善
-  - [ ] 最终交付：完整可运行的员工管理系统
+- [x] **第8-10天：开发综合管理系统**
+  - [x] 需求分析和设计 ([指南](day8_10_guide.md))
+  - [x] 功能开发和实现 ([指南](day8_10_guide.md))
+  - [x] 测试和完善 ([指南](day8_10_guide.md))
+  - [x] 最终交付：完整可运行的员工管理系统 ([指南](day8_10_guide.md))
 
 ## 学习资源
 
@@ -146,3 +165,5 @@ dwz-examples/
 - 第六天实践示例：[day6_examples/](file:///opt/workspace/dwz-examples/day6_examples/)
 - 第七天学习指南：[day7_guide.md](file:///opt/workspace/dwz-examples/day7_guide.md)
 - 第七天实践示例：[day7_examples/](file:///opt/workspace/dwz-examples/day7_examples/)
+- 第8-10天学习指南：[day8_10_guide.md](file:///opt/workspace/dwz-examples/day8_10_guide.md)
+- 员工管理系统示例：[employee_system/](file:///opt/workspace/dwz-examples/employee_system/)

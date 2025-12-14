@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "张三",
+    "gender": "男",
+    "birthDate": "1990-01-01",
+    "idCard": "110101199001011234",
+    "phone": "13800138001",
+    "email": "zhangsan@example.com",
+    "departmentId": 1,
+    "positionId": 1,
+    "hireDate": "2020-01-01"
+  },
+  {
+    "id": 2,
+    "name": "李四",
+    "gender": "女",
+    "birthDate": "1992-05-15",
+    "idCard": "110101199205151234",
+    "phone": "13800138002",
+    "email": "lisi@example.com",
+    "departmentId": 2,
+    "positionId": 2,
+    "hireDate": "2021-03-10"
+  }
+]

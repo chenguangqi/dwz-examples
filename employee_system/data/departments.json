@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "技术部",
+    "parentId": 0
+  },
+  {
+    "id": 2,
+    "name": "销售部",
+    "parentId": 0
+  },
+  {
+    "id": 3,
+    "name": "人事部",
+    "parentId": 0
+  }
+]

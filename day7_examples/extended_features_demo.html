@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>扩展功能综合演示</title>
+    <link id="themeLink" href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/uploadify/css/uploadify.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../dwz_jui-master/uploadify/scripts/jquery.uploadify.min.js"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.theme.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.sortDrag.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    
+    function switchTheme(themeName) {
+        $('#themeLink').attr('href', '../dwz_jui-master/themes/' + themeName + '/style.css');
+        $.cookie('dwz_theme', themeName, { expires: 30, path: '/' });
+    }
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>扩展功能综合演示</h1>
+            
+            <div class="alertInfo">
+                <p>本页面演示了DWZ框架的扩展功能，包括主题切换、文件上传和拖拽排序。</p>
+            </div>
+            
+            <div class="panel">
+                <h1>主题切换</h1>
+                <div>
+                    <div class="unit">
+                        <a class="button" href="javascript:switchTheme('default')">
+                            <span>默认主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('green')">
+                            <span>绿色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('purple')">
+                            <span>紫色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('silver')">
+                            <span>银色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('azure')">
+                            <span>天蓝主题</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h1>文件上传</h1>
+                <div>
+                    <div class="unit">
+                        <input type="file" name="file" id="file_upload" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h1>拖拽排序</h1>
+                <div>
+                    <div class="unit">
+                        <ul class="sortable-list" style="list-style: none; padding: 0;">
+                            <li class="sort-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; cursor: move;">
+                                项目 1
+                            </li>
+                            <li class="sort-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; cursor: move;">
+                                项目 2
+                            </li>
+                            <li class="sort-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; cursor: move;">
+                                项目 3
+                            </li>
+                            <li class="sort-item" style="padding: 10px; margin: 5px 0; background: #f0f0f0; cursor: move;">
+                                项目 4
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+    $(function() {
+        $('#file_upload').uploadify({
+            'swf': '../dwz_jui-master/uploadify/scripts/uploadify.swf',
+            'uploader': 'upload_handler.php',
+            'buttonText': '选择文件',
+            'onUploadSuccess': function(file, data, response) {
+                alert('文件 ' + file.name + ' 上传成功!');
+            }
+        });
+        
+        $('.sortable-list').sortDrag({
+            selector: '.sort-item',
+            replace: true
+        });
+    });
+    </script>
+</body>
+</html>

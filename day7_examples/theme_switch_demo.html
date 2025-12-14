@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主题切换演示</title>
+    <link id="themeLink" href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.theme.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    
+    function switchTheme(themeName) {
+        $('#themeLink').attr('href', '../dwz_jui-master/themes/' + themeName + '/style.css');
+        // 保存用户选择的主题到cookie
+        $.cookie('dwz_theme', themeName, { expires: 30, path: '/' });
+    }
+    </script>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>主题切换演示</h1>
+            
+            <div class="panel">
+                <h1>选择主题</h1>
+                <div>
+                    <div class="unit">
+                        <a class="button" href="javascript:switchTheme('default')">
+                            <span>默认主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('green')">
+                            <span>绿色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('purple')">
+                            <span>紫色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('silver')">
+                            <span>银色主题</span>
+                        </a>
+                        <a class="button" href="javascript:switchTheme('azure')">
+                            <span>天蓝主题</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h1>界面元素展示</h1>
+                <div>
+                    <div class="unit">
+                        <h2>按钮样式</h2>
+                        <a class="button" href="#"><span>普通按钮</span></a>
+                        <a class="buttonActive" href="#"><span>激活按钮</span></a>
+                    </div>
+                    
+                    <div class="unit">
+                        <h2>表单元素</h2>
+                        <input type="text" placeholder="文本输入框" />
+                        <select>
+                            <option>选项1</option>
+                            <option>选项2</option>
+                        </select>
+                    </div>
+                    
+                    <div class="unit">
+                        <h2>表格样式</h2>
+                        <table class="table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>名称</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>项目1</td>
+                                    <td><a href="#">编辑</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>项目2</td>
+                                    <td><a href="#">编辑</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

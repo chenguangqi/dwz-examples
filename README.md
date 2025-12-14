@@ -64,6 +64,12 @@ dwz-examples/
 │   ├── data_linkage_demo.html     # 数据联动功能演示
 │   ├── ajax_integration_demo.html # Ajax集成综合演示
 │   └── ...                        # 其他支持文件
+├── day7_guide.md             # 第七天学习指南
+├── day7_examples/            # 第七天实践示例
+│   ├── upload_demo.html           # 文件上传演示
+│   ├── theme_switch_demo.html     # 主题切换演示
+│   ├── extended_features_demo.html # 扩展功能综合演示
+│   └── ...                        # 其他支持文件
 └── README.md                 # 本文件
 ```
 
@@ -107,10 +113,10 @@ dwz-examples/
   - [x] 掌握数据联动功能(lookup, suggest) ([指南](day6_guide.md))
   - [x] 实践：实现异步数据交互功能 ([指南](day6_guide.md))
 
-- [ ] **第7天：扩展功能与主题**
-  - [ ] 学习扩展插件机制
-  - [ ] 掌握主题切换功能
-  - [ ] 实践：实现文件上传和拖拽排序功能
+- [x] **第7天：扩展功能与主题**
+  - [x] 学习扩展插件机制 ([指南](day7_guide.md))
+  - [x] 掌握主题切换功能 ([指南](day7_guide.md))
+  - [x] 实践：实现文件上传和拖拽排序功能 ([指南](day7_guide.md))
 
 ### 第四阶段：综合应用示例 (3天)
 
@@ -138,3 +144,5 @@ dwz-examples/
 - 第五天实践示例：[day5_examples/](file:///opt/workspace/dwz-examples/day5_examples/)
 - 第六天学习指南：[day6_guide.md](file:///opt/workspace/dwz-examples/day6_guide.md)
 - 第六天实践示例：[day6_examples/](file:///opt/workspace/dwz-examples/day6_examples/)
+- 第七天学习指南：[day7_guide.md](file:///opt/workspace/dwz-examples/day7_guide.md)
+- 第七天实践示例：[day7_examples/](file:///opt/workspace/dwz-examples/day7_examples/)

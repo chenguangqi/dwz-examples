@@ -52,6 +52,18 @@ dwz-examples/
 │   ├── form_components_demo.html  # 表单组件演示
 │   ├── complete_form_demo.html    # 完整表单页面演示
 │   └── ...                        # 其他支持文件
+├── day5_guide.md             # 第五天学习指南
+├── day5_examples/            # 第五天实践示例
+│   ├── table_pagination_demo.html # 表格和分页组件演示
+│   ├── tree_demo.html             # 树形组件演示
+│   ├── data_display_demo.html     # 数据展示组件综合演示
+│   └── ...                        # 其他支持文件
+├── day6_guide.md             # 第六天学习指南
+├── day6_examples/            # 第六天实践示例
+│   ├── ajax_demo.html             # Ajax集成演示
+│   ├── data_linkage_demo.html     # 数据联动功能演示
+│   ├── ajax_integration_demo.html # Ajax集成综合演示
+│   └── ...                        # 其他支持文件
 └── README.md                 # 本文件
 ```
 
@@ -83,17 +95,17 @@ dwz-examples/
   - [x] 掌握datepicker、combox等表单组件 ([指南](day4_guide.md))
   - [x] 实践：创建完整表单页面 ([指南](day4_guide.md))
 
-- [ ] **第5天：数据展示组件**
-  - [ ] 学习表格和分页组件
-  - [ ] 掌握树形组件(tree)
-  - [ ] 实践：创建带分页的数据列表和树形菜单
+- [x] **第5天：数据展示组件**
+  - [x] 学习表格和分页组件 ([指南](day5_guide.md))
+  - [x] 掌握树形组件(tree) ([指南](day5_guide.md))
+  - [x] 实践：创建带分页的数据列表和树形菜单 ([指南](day5_guide.md))
 
 ### 第三阶段：高级功能 (2天)
 
-- [ ] **第6天：Ajax与数据交互**
-  - [ ] 学习Ajax集成和异步请求处理
-  - [ ] 掌握数据联动功能(lookup, suggest)
-  - [ ] 实践：实现异步数据交互功能
+- [x] **第6天：Ajax与数据交互**
+  - [x] 学习Ajax集成和异步请求处理 ([指南](day6_guide.md))
+  - [x] 掌握数据联动功能(lookup, suggest) ([指南](day6_guide.md))
+  - [x] 实践：实现异步数据交互功能 ([指南](day6_guide.md))
 
 - [ ] **第7天：扩展功能与主题**
   - [ ] 学习扩展插件机制
@@ -122,3 +134,7 @@ dwz-examples/
 - 第三天实践示例：[day3_examples/](file:///opt/workspace/dwz-examples/day3_examples/)
 - 第四天学习指南：[day4_guide.md](file:///opt/workspace/dwz-examples/day4_guide.md)
 - 第四天实践示例：[day4_examples/](file:///opt/workspace/dwz-examples/day4_examples/)
+- 第五天学习指南：[day5_guide.md](file:///opt/workspace/dwz-examples/day5_guide.md)
+- 第五天实践示例：[day5_examples/](file:///opt/workspace/dwz-examples/day5_examples/)
+- 第六天学习指南：[day6_guide.md](file:///opt/workspace/dwz-examples/day6_guide.md)
+- 第六天实践示例：[day6_examples/](file:///opt/workspace/dwz-examples/day6_examples/)

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据展示组件综合演示</title>
+    <link href="../dwz_jui-master/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <link href="../dwz_jui-master/themes/css/core.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../dwz_jui-master/js/jquery-3.4.1.js"></script>
+    <script src="../dwz_jui-master/js/dwz.core.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.navTab.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.tree.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.pagination.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.ui.js" type="text/javascript"></script>
+    <script src="../dwz_jui-master/js/dwz.regional.zh.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+        DWZ.init("../dwz_jui-master/dwz.frag.xml", {
+            statusCode:{ok:200, error:300, timeout:301}, 
+            keys: {statusCode:"statusCode", message:"message"},
+            callback:function(){
+                initEnv();
+            }
+        });
+    });
+    </script>
+    <style>
+        .left-tree {
+            float: left;
+            width: 200px;
+            margin-right: 20px;
+        }
+        
+        .right-content {
+            float: left;
+            width: calc(100% - 220px);
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <div style="padding:20px;">
+            <h1>数据展示组件综合演示</h1>
+            
+            <div class="clearfix">
+                <div class="left-tree">
+                    <div class="panel">
+                        <h1>功能菜单</h1>
+                        <div>
+                            <ul class="tree treeFolder">
+                                <li><a>系统管理</a>
+                                    <ul>
+                                        <li><a href="user_management.html" target="navTab" rel="users">用户管理</a></li>
+                                        <li><a href="role_management.html" target="navTab" rel="roles">角色管理</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>业务管理</a>
+                                    <ul>
+                                        <li><a href="order_management.html" target="navTab" rel="orders">订单管理</a></li>
+                                        <li><a href="product_management.html" target="navTab" rel="products">产品管理</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>统计报表</a>
+                                    <ul>
+                                        <li><a href="sales_report.html" target="navTab" rel="sales">销售报表</a></li>
+                                        <li><a href="finance_report.html" target="navTab" rel="finance">财务报表</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-content">
+                    <div class="panel">
+                        <h1>用户列表</h1>
+                        <div>
+                            <div class="pageContent">
+                                <table class="table" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="30"><input type="checkbox" class="checkboxCtrl" group="ids" /></th>
+                                            <th width="50">ID</th>
+                                            <th orderField="name" class="asc">姓名</th>
+                                            <th orderField="email">邮箱</th>
+                                            <th orderField="department">部门</th>
+                                            <th orderField="createTime">创建时间</th>
+                                            <th width="120">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="ids" value="1" /></td>
+                                            <td>1</td>
+                                            <td>张三</td>
+                                            <td>zhangsan@example.com</td>
+                                            <td>技术部</td>
+                                            <td>2023-01-15</td>
+                                            <td>
+                                                <a href="user_edit.html" target="navTab" title="编辑用户">编辑</a>
+                                                <a href="user_delete.html" target="ajaxTodo" title="确定要删除该用户吗?">删除</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="ids" value="2" /></td>
+                                            <td>2</td>
+                                            <td>李四</td>
+                                            <td>lisi@example.com</td>
+                                            <td>销售部</td>
+                                            <td>2023-02-20</td>
+                                            <td>
+                                                <a href="user_edit.html" target="navTab" title="编辑用户">编辑</a>
+                                                <a href="user_delete.html" target="ajaxTodo" title="确定要删除该用户吗?">删除</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="ids" value="3" /></td>
+                                            <td>3</td>
+                                            <td>王五</td>
+                                            <td>wangwu@example.com</td>
+                                            <td>人事部</td>
+                                            <td>2023-03-10</td>
+                                            <td>
+                                                <a href="user_edit.html" target="navTab" title="编辑用户">编辑</a>
+                                                <a href="user_delete.html" target="ajaxTodo" title="确定要删除该用户吗?">删除</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="ids" value="4" /></td>
+                                            <td>4</td>
+                                            <td>赵六</td>
+                                            <td>zhaoliu@example.com</td>
+                                            <td>财务部</td>
+                                            <td>2023-04-05</td>
+                                            <td>
+                                                <a href="user_edit.html" target="navTab" title="编辑用户">编辑</a>
+                                                <a href="user_delete.html" target="ajaxTodo" title="确定要删除该用户吗?">删除</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="ids" value="5" /></td>
+                                            <td>5</td>
+                                            <td>钱七</td>
+                                            <td>qianqi@example.com</td>
+                                            <td>技术部</td>
+                                            <td>2023-05-12</td>
+                                            <td>
+                                                <a href="user_edit.html" target="navTab" title="编辑用户">编辑</a>
+                                                <a href="user_delete.html" target="ajaxTodo" title="确定要删除该用户吗?">删除</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="panelBar">
+                                    <div class="pages">
+                                        <span>显示</span>
+                                        <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                                            <option value="20">20</option>
+                                            <option value="50" selected>50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span>条，共<label class="totalCount">120</label>条</span>
+                                    </div>
+                                    
+                                    <div class="pagination" targetType="navTab" totalCount="120" numPerPage="50" pageNumShown="10" currentPage="1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel">
+                        <h1>订单列表</h1>
+                        <div>
+                            <div class="pageContent">
+                                <table class="table" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="30"><input type="checkbox" class="checkboxCtrl" group="orderIds" /></th>
+                                            <th width="100">订单号</th>
+                                            <th orderField="customer">客户</th>
+                                            <th orderField="amount">金额</th>
+                                            <th orderField="status">状态</th>
+                                            <th orderField="createTime">创建时间</th>
+                                            <th width="120">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="orderIds" value="1" /></td>
+                                            <td>ORD202301001</td>
+                                            <td>张三</td>
+                                            <td>¥1,280.00</td>
+                                            <td>已发货</td>
+                                            <td>2023-01-15</td>
+                                            <td>
+                                                <a href="order_detail.html" target="navTab" title="订单详情">详情</a>
+                                                <a href="order_cancel.html" target="ajaxTodo" title="确定要取消该订单吗?">取消</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="orderIds" value="2" /></td>
+                                            <td>ORD202301002</td>
+                                            <td>李四</td>
+                                            <td>¥2,560.00</td>
+                                            <td>待付款</td>
+                                            <td>2023-01-16</td>
+                                            <td>
+                                                <a href="order_detail.html" target="navTab" title="订单详情">详情</a>
+                                                <a href="order_cancel.html" target="ajaxTodo" title="确定要取消该订单吗?">取消</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="orderIds" value="3" /></td>
+                                            <td>ORD202301003</td>
+                                            <td>王五</td>
+                                            <td>¥890.00</td>
+                                            <td>已完成</td>
+                                            <td>2023-01-17</td>
+                                            <td>
+                                                <a href="order_detail.html" target="navTab" title="订单详情">详情</a>
+                                                <a href="order_cancel.html" target="ajaxTodo" title="确定要取消该订单吗?">取消</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="panelBar">
+                                    <div class="pages">
+                                        <span>显示</span>
+                                        <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                                            <option value="20">20</option>
+                                            <option value="50" selected>50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span>条，共<label class="totalCount">85</label>条</span>
+                                    </div>
+                                    
+                                    <div class="pagination" targetType="navTab" totalCount="85" numPerPage="50" pageNumShown="10" currentPage="1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

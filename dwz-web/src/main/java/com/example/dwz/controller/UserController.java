@@ -1,85 +1,56 @@
 package com.example.dwz.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.dwz.entity.User;
+import com.example.dwz.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
     
-    private List<Map<String, Object>> users = new ArrayList<>();
-    
-    public UserController() {
-        // 初始化一些示例数据
-        Map<String, Object> user1 = new HashMap<>();
-        user1.put("id", 1);
-        user1.put("name", "张三");
-        user1.put("email", "zhangsan@example.com");
-        user1.put("department", "技术部");
-        users.add(user1);
-        
-        Map<String, Object> user2 = new HashMap<>();
-        user2.put("id", 2);
-        user2.put("name", "李四");
-        user2.put("email", "lisi@example.com");
-        user2.put("department", "市场部");
-        users.add(user2);
-        
-        Map<String, Object> user3 = new HashMap<>();
-        user3.put("id", 3);
-        user3.put("name", "王五");
-        user3.put("email", "wangwu@example.com");
-        user3.put("department", "人事部");
-        users.add(user3);
-    }
+    @Autowired
+    private UserService userService;
     
     @GetMapping
     public Map<String, Object> getUsers(@RequestParam(defaultValue = "1") int pageNum,
                                        @RequestParam(defaultValue = "10") int pageSize) {
+        Page<User> page = new Page<>(pageNum, pageSize);
+        userService.page(page);
+        
         Map<String, Object> result = new HashMap<>();
         result.put("statusCode", 200);
         result.put("message", "操作成功");
-        result.put("data", users);
-        result.put("pageNum", pageNum);
-        result.put("pageSize", pageSize);
-        result.put("total", users.size());
+        result.put("data", page.getRecords());
+        result.put("pageNum", page.getCurrent());
+        result.put("pageSize", page.getSize());
+        result.put("total", page.getTotal());
         return result;
     }
     
     @GetMapping("/{id}")
     public Map<String, Object> getUser(@PathVariable int id) {
         Map<String, Object> result = new HashMap<>();
+        User user = userService.getById(id);
         
-        for (Map<String, Object> user : users) {
-            if ((Integer) user.get("id") == id) {
-                result.put("statusCode", 200);
-                result.put("message", "操作成功");
-                result.put("data", user);
-                return result;
-            }
+        if (user != null) {
+            result.put("statusCode", 200);
+            result.put("message", "操作成功");
+            result.put("data", user);
+        } else {
+            result.put("statusCode", 404);
+            result.put("message", "用户不存在");
         }
-        
-        result.put("statusCode", 404);
-        result.put("message", "用户不存在");
         return result;
     }
     
     @PostMapping
-    public Map<String, Object> createUser(@RequestBody Map<String, Object> user) {
-        // 设置新用户的ID
-        int maxId = 0;
-        for (Map<String, Object> u : users) {
-            int id = (Integer) u.get("id");
-            if (id > maxId) {
-                maxId = id;
-            }
-        }
-        user.put("id", maxId + 1);
-        users.add(user);
+    public Map<String, Object> createUser(@RequestBody User user) {
+        userService.save(user);
         
         Map<String, Object> result = new HashMap<>();
         result.put("statusCode", 200);
@@ -89,24 +60,21 @@ public class UserController {
     }
     
     @PutMapping("/{id}")
-    public Map<String, Object> updateUser(@PathVariable int id, @RequestBody Map<String, Object> updatedUser) {
+    public Map<String, Object> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
         Map<String, Object> result = new HashMap<>();
         
-        for (int i = 0; i < users.size(); i++) {
-            Map<String, Object> user = users.get(i);
-            if ((Integer) user.get("id") == id) {
-                updatedUser.put("id", id); // 确保ID不被修改
-                users.set(i, updatedUser);
-                
-                result.put("statusCode", 200);
-                result.put("message", "用户更新成功");
-                result.put("data", updatedUser);
-                return result;
-            }
+        User user = userService.getById(id);
+        if (user != null) {
+            updatedUser.setId(id); // 确保ID不被修改
+            userService.updateById(updatedUser);
+            
+            result.put("statusCode", 200);
+            result.put("message", "用户更新成功");
+            result.put("data", updatedUser);
+        } else {
+            result.put("statusCode", 404);
+            result.put("message", "用户不存在");
         }
-        
-        result.put("statusCode", 404);
-        result.put("message", "用户不存在");
         return result;
     }
     
@@ -114,19 +82,16 @@ public class UserController {
     public Map<String, Object> deleteUser(@PathVariable int id) {
         Map<String, Object> result = new HashMap<>();
         
-        for (int i = 0; i < users.size(); i++) {
-            Map<String, Object> user = users.get(i);
-            if ((Integer) user.get("id") == id) {
-                users.remove(i);
-                
-                result.put("statusCode", 200);
-                result.put("message", "用户删除成功");
-                return result;
-            }
+        User user = userService.getById(id);
+        if (user != null) {
+            userService.removeById(id);
+            
+            result.put("statusCode", 200);
+            result.put("message", "用户删除成功");
+        } else {
+            result.put("statusCode", 404);
+            result.put("message", "用户不存在");
         }
-        
-        result.put("statusCode", 404);
-        result.put("message", "用户不存在");
         return result;
     }
 }

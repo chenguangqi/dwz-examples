@@ -36,9 +36,20 @@ dwz-web/
 
 ## 启动项目
 
-### 1. 数据库准备
+### 1. 使用Docker启动数据库（推荐）
 
-首先需要安装并启动 PostgreSQL 数据库，并创建相应的数据库和用户：
+项目根目录的`docker`目录中包含了PostgreSQL数据库的Docker Compose配置：
+
+```bash
+cd ../docker
+docker-compose up -d
+```
+
+这将启动PostgreSQL数据库和pgAdmin管理界面。
+
+### 2. 数据库准备（手动安装方式）
+
+如果不想使用Docker，也可以手动安装PostgreSQL数据库，并执行以下操作：
 
 ```sql
 CREATE DATABASE dwz_db;
@@ -46,7 +57,7 @@ CREATE USER dwz_user WITH PASSWORD 'dwz_password';
 GRANT ALL PRIVILEGES ON DATABASE dwz_db TO dwz_user;
 ```
 
-### 2. 修改数据库配置
+### 3. 修改数据库配置
 
 在 `src/main/resources/application.properties` 中修改数据库连接参数以匹配你的环境：
 
@@ -56,7 +67,9 @@ spring.datasource.username=dwz_user
 spring.datasource.password=dwz_password
 ```
 
-### 3. 启动应用
+如果使用Docker环境，默认配置应该可以直接工作。
+
+### 4. 启动应用
 
 ```bash
 cd dwz-web

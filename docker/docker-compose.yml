@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: dwz_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: dwz_db
+      POSTGRES_USER: dwz_user
+      POSTGRES_PASSWORD: dwz_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - dwz_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: dwz_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - dwz_network
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
+networks:
+  dwz_network:
+    driver: bridge

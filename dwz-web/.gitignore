@@ -1,0 +1,50 @@
+# Maven相关
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Java相关
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+
+# 日志文件
+*.log
+logs/
+
+# IDE相关
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.swp
+*.swo
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+
+# 编辑器备份文件
+*~
+*.bak
+
+# Spring Boot相关
+.mvn/wrapper/maven-wrapper.jar
+
+# 数据库相关
+*.sql.zip
+*.sql.tar.gz
+
+# 环境配置文件
+application-*.properties
+application-*.yml

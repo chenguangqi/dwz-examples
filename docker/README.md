@@ -9,6 +9,9 @@ docker/
 ├── docker-compose.yml      # Docker Compose配置文件
 ├── init-scripts/           # 数据库初始化脚本
 │   └── 01-init-db.sql      # 数据库初始化SQL脚本
+├── volumes/                # 数据持久化目录
+│   ├── postgres/           # PostgreSQL数据存储目录
+│   └── pgadmin/            # pgAdmin数据存储目录
 └── README.md               # 本说明文件
 ```
 
@@ -71,4 +74,6 @@ docker-compose ps
 
 ## 数据持久化
 
-数据库数据存储在Docker Volume中，即使容器被删除，数据也不会丢失。
+数据库数据存储在本地`volumes`目录中，即使容器被删除，数据也不会丢失。这些目录位于：
+- PostgreSQL数据: `./volumes/postgres`
+- pgAdmin数据: `./volumes/pgadmin`

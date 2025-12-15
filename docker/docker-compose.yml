@@ -13,7 +13,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./volumes/postgres:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d
     networks:
       - dwz_network
@@ -28,15 +28,11 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - ./volumes/pgadmin:/var/lib/pgadmin
     depends_on:
       - postgres
     networks:
       - dwz_network
-
-volumes:
-  postgres_data:
-  pgadmin_data:
 
 networks:
   dwz_network:

@@ -4,87 +4,90 @@
     <meta charset="UTF-8">
     <title>DWZ-JUI Spring Boot Backend</title>
     <script>
-        // Apply the saved mode before the page is painted.
-        try {
-            if (localStorage.getItem('theme-mode') === 'dark') {
-                document.documentElement.dataset.theme = 'dark';
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('dwz-color-mode');
+                if (savedTheme === 'dark' || savedTheme === 'light') {
+                    document.documentElement.dataset.theme = savedTheme;
+                }
+            } catch (error) {
+                // Keep the default light mode when storage is unavailable.
             }
-        } catch (error) {
-            // The page remains usable when storage is unavailable.
-        }
+        })();
     </script>
     <style>
         :root {
             color-scheme: light;
-            --page-bg: #f5f5f5;
-            --surface: #fff;
-            --text: #222;
-            --heading: #333;
-            --link: #0056b3;
-            --border: #666;
+            --page-background: #f5f5f5;
+            --surface-background: #fff;
+            --text-color: #222;
+            --muted-text-color: #333;
+            --link-color: #007bff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
         :root[data-theme="dark"] {
             color-scheme: dark;
-            --page-bg: #17191c;
-            --surface: #25292e;
-            --text: #f0f0f0;
-            --heading: #fff;
-            --link: #8ec5ff;
-            --border: #b9c1cb;
+            --page-background: #17191c;
+            --surface-background: #25292e;
+            --text-color: #f1f3f5;
+            --muted-text-color: #d5d9de;
+            --link-color: #8ab4ff;
+            --shadow-color: rgba(0, 0, 0, 0.35);
         }
         body {
             font-family: Arial, sans-serif;
             margin: 40px;
-            background-color: var(--page-bg);
-            color: var(--text);
+            background-color: var(--page-background);
+            color: var(--text-color);
+            transition: background-color 180ms ease, color 180ms ease;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: var(--surface);
+            background-color: var(--surface-background);
+            color: var(--text-color);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: background-color 180ms ease, color 180ms ease;
         }
         h1 {
-            color: var(--heading);
+            color: var(--muted-text-color);
             text-align: center;
         }
         ul {
             line-height: 1.6;
         }
         a {
-            color: var(--link);
+            color: var(--link-color);
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
-        .theme-control {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 8px;
-        }
-        .theme-control select {
-            color: var(--text);
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 6px;
+        .theme-toggle {
+            display: block;
+            margin: 0 0 20px auto;
+            padding: 8px 12px;
+            border: 1px solid var(--link-color);
+            border-radius: 6px;
+            background: var(--surface-background);
+            color: var(--link-color);
             font: inherit;
+            cursor: pointer;
+        }
+        .theme-toggle:focus-visible {
+            outline: 3px solid var(--link-color);
+            outline-offset: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            body, .container { transition: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="theme-control">
-            <label for="theme-mode">主题模式</label>
-            <select id="theme-mode">
-                <option value="light">浅色</option>
-                <option value="dark">深色</option>
-            </select>
-        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">切换到深色模式</button>
         <h1>DWZ-JUI Spring Boot 后端服务</h1>
         <p>这是为 DWZ-JUI 框架练习提供的 Spring Boot 后端服务。</p>
         
@@ -110,16 +113,28 @@
         <pre>mvn spring-boot:run</pre>
     </div>
     <script>
-        const themeMode = document.getElementById('theme-mode');
-        themeMode.value = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
-        themeMode.addEventListener('change', function () {
-            document.documentElement.dataset.theme = themeMode.value;
-            try {
-                localStorage.setItem('theme-mode', themeMode.value);
-            } catch (error) {
-                // Switching still works for this page when storage is unavailable.
+        (function () {
+            var toggle = document.getElementById('themeToggle');
+            var root = document.documentElement;
+
+            function syncToggle() {
+                var isDark = root.dataset.theme === 'dark';
+                toggle.setAttribute('aria-pressed', String(isDark));
+                toggle.textContent = isDark ? '切换到浅色模式' : '切换到深色模式';
             }
-        });
+
+            syncToggle();
+            toggle.addEventListener('click', function () {
+                var nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+                root.dataset.theme = nextTheme;
+                try {
+                    localStorage.setItem('dwz-color-mode', nextTheme);
+                } catch (error) {
+                    // The current page can still switch when storage is unavailable.
+                }
+                syncToggle();
+            });
+        })();
     </script>
 </body>
 </html>

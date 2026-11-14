@@ -1,5 +1,7 @@
 # DWZ框架学习计划
 
+> 💡 **项目全景介绍与技术架构报告**：详见 [PROJECT_REPORT.md](PROJECT_REPORT.md)。
+
 `dwz_jui-master`目录是DWZ开源项目的完整源码，用于学习和参考。
 
 ## 学习目标
@@ -89,6 +91,7 @@ dwz-examples/
 │   │   └── position_form.html
 │   └── js/                    # 自定义JavaScript文件
 │       └── app.js
+├── PROJECT_REPORT.md         # 项目全景介绍报告
 └── README.md                 # 本文件
 ```
 
